@@ -1,9 +1,7 @@
-const http = require('http')
+// const http = require('http')
 const express = require('express')
 const app = express()
 const morgan = require('morgan')
-const cors = require('cors')
-
 const PORT = process.env.PORT || 3001
 
 
@@ -14,7 +12,6 @@ morgan.token("id", (request, response) => {
     return "";
 })
 
-app.use(cors())
 app.use(express.json())
 app.use(express.static('dist'))
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :id'))
